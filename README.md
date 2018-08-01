@@ -41,6 +41,6 @@ canvas.addText({x - (2 * indicatorSize / distance), y - (2 * indicatorSize / d)}
 ```
 
 And boom, we've projected the 3D point onto our 2D canvas. Sorry for this massively incomprehensible tutorial, see the examples to get a better understanding.
-
+<br><br>
 ### NOTE: USE [PLETHORA'S BUILD-IN 3D FUNCTIONS](https://github.com/SquidDev-CC/plethora/pull/106) ONCE THEY ARE AVAILABLE INSTEAD OF ARCORE
 Because ARCore ruins your performance. ARCore's purpose is to only function while Plethora lacks 3D functionality.

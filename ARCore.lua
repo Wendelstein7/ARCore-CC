@@ -6,12 +6,16 @@ _.website = "https://github.com/Wendelstein7/ARCore-CC"
 _.version = 1
 _.date = "2018-08-01"
 
-local function rotate(x, y, z)
-    newx = ycos * x + ysin * z
-    newz = -ysin * x + ycos * z
-    newy = pcos * y - psin * newz
-    newz = psin * y + pcos * newz
-    return newx, newy, newz
+local function rotate(x, y, z, yaw, pitch)
+  local ysin = math.sin(yaw)
+  local ycos = math.cos(yaw)
+  local psin = math.sin(pitch)
+  local pcos = math.cos(pitch)
+  newx = ycos * x + ysin * z
+  newz = -ysin * x + ycos * z
+  newy = pcos * y - psin * newz
+  newz = psin * y + pcos * newz
+  return newx, newy, newz
 end
 
 local function toPerspective(x, y, z, scrhor, scrver, cxh, cyh)
@@ -50,7 +54,7 @@ function _.project(x, y, z, preparedCanvas, yaw, pitch, limitToScreen)
   expect('project', 5, yaw, 'number'); expect('project', 6, pitch, 'number');
   expect('project', 7, limitToScreen, 'boolean');
   local d = getDistance(x, y, z)
-  x, y, z = rotate(x, y, z)
+  x, y, z = rotate(x, y, z, yaw, pitch)
   if z < 0 then return false, 'object not in front of view' end
   x, y = toPerspective(x, y, -z, preparedCanvas.scrHor, preparedCanvas.scrVer, preparedCanvas.xMax / 2, preparedCanvas.yMax / 2)
   if limitToScreen and not isOnScreen(x, y, d, preparedCanvas.xMax, preparedCanvas.yMax) then return false, 'object not within field of view' end

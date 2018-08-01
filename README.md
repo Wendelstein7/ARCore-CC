@@ -1,6 +1,10 @@
 # ARCore-CC
 A library for ComputerCraft with Plethora that handles perspective projection for creating VR/AR applications with the overlay glasses.
-<br><br><br><br>
+<br><br>
+### It sucks / is inperformant / could be improved
+Please, please do improve ARCore and submit pull requests!
+
+<br><br>
 ### How to use ARCore?
 
 First we need to make sure that we can access ARCore's functionality. We use lua's require.<br>
@@ -14,8 +18,11 @@ local modules = peripheral.wrap("back")
 local canvas = modules.canvas()
 ```
 
-Then, we must prepare some calculations for performance reasons.
+Following, we setup some user-dependant variables and we must prepare some calculations for performance reasons.
 ```
+local fov = 80
+local ar = 1.8
+
 local preparedCanvas = ARCore.prepare(can, fov, ar)
 ```
 

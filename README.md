@@ -43,7 +43,7 @@ local indicatorSize = 16
 
 local valid, x, y, distance = ARCore.project(x, y, z, preparedCanvas, yaw, pitch, false)
 
-canvas.addText({x - (2 * indicatorSize / distance), y - (2 * indicatorSize / d)}, indicator, 0xFFFFFFFF, indicatorSize / d)
+canvas.addText({x - (2 * indicatorSize / distance), y - (2 * indicatorSize / distance)}, indicator, 0xFFFFFFFF, indicatorSize / distance)
 ```
 
 And boom, we've projected the 3D point onto our 2D canvas. Sorry for this massively incomprehensible tutorial, see the examples to get a better understanding.

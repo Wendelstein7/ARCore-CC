@@ -33,12 +33,12 @@ local function getDistance(x, y, z)
 end
 
 local function expect(func, n, arg, expected)
-  if type(arg) ~= expected then return error(('%s: bad argument #%d (expected %s, got %s)'):format(func, n, expected, type(arg))) end
+  if type(arg) ~= expected then return error(('%s: bad argument #%d (expected %s, got %s)'):format(func, n, expected, type(arg)), 2) end
 end
 
 function _.prepare(canvas, fov, ar)
   expect('prepare', 1, canvas, 'table'); expect('prepare', 2, fov, 'number'); expect('prepare', 3, ar, 'number');
-  if fov >= 180 or fov <= 0 then error('prepare: bad argument #1 (fov must be more than 0 and less than 180)') end
+  if fov >= 180 or fov <= 0 then error('prepare: bad argument #1 (fov must be more than 0 and less than 180)', 2) end
   local prepared = {}
   prepared.fov = math.rad(fov)
   prepared.ar = ar

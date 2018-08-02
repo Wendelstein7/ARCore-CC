@@ -29,7 +29,7 @@ Following, we setup some user-dependant variables and we must prepare some calcu
 local fov = 80
 local ar = 1.8
 
-local preparedCanvas = ARCore.prepare(can, fov, ar)
+local preparedCanvas = ARCore.prepare(canvas, fov, ar)
 ```
 
 Now we can project some 3D point to our 3D screen! We get the rotation of the camera and define the coordinates for our point in 3D-space. <br>We pass the 3D coordinates to `ARCore.project` and it returns 2D coordinates and distance, which we use for drawing to the overlay glasses.

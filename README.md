@@ -7,6 +7,12 @@ Please, please do improve ARCore and submit pull requests!
 <br><br>
 ### How to use ARCore?
 
+Download the ARCore library by executing the following in your shell:
+```
+wget https://raw.githubusercontent.com/Wendelstein7/ARCore-CC/master/ARCore.lua ARCore.lua
+```
+
+Now we're going to make a program, so use `edit` to create a new lua file.
 First we need to make sure that we can access ARCore's functionality. We use lua's require.<br>
 ```
 ARCore = require("ARCore")
